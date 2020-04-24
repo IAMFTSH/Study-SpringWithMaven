@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--扫描器启动要加     一堆XMLN之类的东西-->
+    <context:component-scan base-package="org.myStudy.service"></context:component-scan>
+
+                <!--scope 默认单例子  另一个原型-->
+    <bean id="student" class="org.myStudy.entity.Student" scope="prototype">
+        <!--value:简单类型-->
+        <property name="stuNo" value="1"/>
+        <property name="stuName" value="张三"/>
+        <property name="stuAge" value="23"/>
+        <property name="address" ref="address"/>
+    </bean>
+    <bean id="address" class="org.myStudy.entity.Address">
+        <property name="homeAddress" value="thank"/>
+        <property name="schoolAddress" value="gun"/>
+    </bean>
+</beans>
